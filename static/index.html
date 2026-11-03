@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Chatbot</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<!-- ======================= LOGIN ======================= -->
+<div id="login-view" class="hidden">
+  <form class="login-card" id="login-form">
+    <div class="logo">&#128172;</div>
+    <h1>Admin Chatbot</h1>
+    <p>Enter your registered email to continue. No password needed.</p>
+    <label for="email">Email address</label>
+    <input type="email" id="email" placeholder="you@example.com" autocomplete="email" required autofocus>
+    <button class="btn" id="login-btn" type="submit">Continue</button>
+    <div class="error" id="login-error"></div>
+  </form>
+</div>
+
+<!-- ======================= APP ======================= -->
+<div id="app-view" class="hidden">
+  <header>
+    <div class="brand"><div class="logo">&#128172;</div> Admin Chatbot</div>
+    <div class="who">
+      <span class="role-badge" id="who-role"></span>
+      <span id="who-email"></span>
+      <button class="link-btn" id="logout-btn">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel chat-panel">
+      <div class="panel-title">Chat</div>
+      <div id="messages"></div>
+
+      <!-- Shortcuts: admin only (hidden for normal users) -->
+      <!-- <div class="chips hidden" id="chips">
+        <button class="chip" data-text='Can you add the user "john.smith@xyz.com" with phone number "+92332"'>Add a user</button>
+        <button class="chip" data-text="Can you update samantha's city to Cordoba">Update a user</button>
+        <button class="chip" data-text='Can you remove the user "john.smith@xyz.com"'>Remove a user</button>
+        <button class="chip" data-text="Show me all users">List users</button>
+      </div> -->
+
+      <form class="composer" id="chat-form">
+        <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
+        <button class="btn" id="send-btn" type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- Users panel: admin only (hidden for normal users) -->
+    <aside class="panel users-panel hidden" id="users-panel">
+      <div class="panel-title">Users <span class="count" id="user-count"></span></div>
+      <div id="user-list"></div>
+    </aside>
+  </main>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
